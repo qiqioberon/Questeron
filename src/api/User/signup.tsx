@@ -1,35 +1,25 @@
 import { useMutation, MutationFunction } from "@tanstack/react-query";
 import main from "../main";
-import { LoginUser as LoginUserType } from "@/types/LoginUserType";
+import { SignUp as SignUpForm } from "@/types/SignUpForm";
 import { toast } from "react-toastify";
-import useUserStore from "@/store/userStore";
 
-
-export default function LoginUser() {
+export default function SignUpUser() {
 	const {
-		mutate: mutateUseLoginUser,
-		data: response,
+		mutate: mutateSignUp,
+		data: responseSignUp,
 		isSuccess,
+		error,
 	} = useMutation({
-		mutationFn: (data: LoginUserType) => {
-			const loginUser = data;
-			return main.post(`user/login`, loginUser);
+		mutationFn: (data: SignUpForm) => {
+			const SignUpUser = data;
+			return main.post(`user`, SignUpUser);
 		},
-		onError: (error: Error) => toast.error(getErrorMessage(error)),
-		onSuccess: () => toast.success("Sukses Login"),
+		onError: (error: any) => toast.error(getErrorMessage(error)),
+		onSuccess: () => toast.success("Sukses Sign Up"),
 	});
 
-	if (response && response.data && response.data.accessToken) {
-		const { accessToken } = response.data;
-		useUserStore.getState().setAccessToken(accessToken);
-		localStorage.setItem("accessToken", accessToken);
-		console.log(useUserStore.getState().accessToken);
-	}
-
-
-	return { mutateUseLoginUser, response, isSuccess };
+	return { mutateSignUp, responseSignUp, isSuccess, error };
 }
-
 
 function getErrorMessage(error: any) {
 	let resultMessage = "";
@@ -42,4 +32,3 @@ function getErrorMessage(error: any) {
 	}
 	return resultMessage;
 }
-
