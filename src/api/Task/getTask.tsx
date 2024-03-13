@@ -15,6 +15,10 @@ export default function GetTaskData() {
 			return main.get<ApiResponse<AllTasks>>("/task");
 		},
 		enabled: true,
+		refetchOnWindowFocus: false,
+		refetchOnReconnect: false,
+		refetchIntervalInBackground: false,
+		refetchOnMount: false,
 	});
 	console.log(status);
 	return { taskData, isSuccess, refetch };

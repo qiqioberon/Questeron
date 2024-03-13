@@ -61,12 +61,12 @@ export default function FormDescription({
 							id="description"
 							placeholder="Enter a Description for this card..."
 							defaultValue={description} // Menambahkan nilai default dari description
-							className="w-96 h-56 resize-none focus-visible:ring-0 focus-visible:ring-offset-0 ring-0 focus:ring-0 outline-none shadow-sm p-3 rounded-lg"
+							className="font-['Montserrat'] font-medium w-96 h-56 resize-none focus-visible:ring-0 focus-visible:ring-offset-0 ring-0 focus:ring-0 outline-none shadow-sm p-3 rounded-lg"
 						/>
 						<div className="flex items-center gap-x-2">
 							<button
 								type="submit"
-								className="p-2 px-4 rounded-md bg-gray-950 text-gray-300 font-semibold shadow-lg overflow-hidden relative transition duration-200 hover:text-gray-800 hover:bg-white hover:before:w-full"
+								className="font-['Montserrat'] p-2 px-4 rounded-md bg-gray-950 text-gray-300 font-semibold shadow-lg overflow-hidden relative transition duration-200 hover:text-gray-800 hover:bg-white hover:before:w-full"
 							>
 								Add Description
 							</button>

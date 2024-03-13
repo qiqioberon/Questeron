@@ -1,5 +1,5 @@
 import EditTaskTags from "@/api/Task/UpdateTaskTags";
-import GetTaskData from "@/api/Task/getTask";
+
 import { Plus, XCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 import { FormProvider, useForm, SubmitHandler } from "react-hook-form";
@@ -46,19 +46,21 @@ export default function FormLabel({
 				<FormProvider {...methods}>
 					<form
 						onSubmit={handleSubmit(submitHandler)}
-						className="m-1 mx-16 py-3 px-4 space-y-4 bg-black/35 rounded-lg fixed right-64"
+						className=" absolute z-10 m-1 mx-16 py-3 px-4 space-y-4 bg-black/35 rounded-lg  right-64"
 					>
-						<h1 className="font-extrabold text-lg text-white">New Label</h1>
+						<h1 className="font-extrabold text-lg text-white font-['Montserrat']">
+							New Label
+						</h1>
 						<input
 							{...register("tags")}
 							id="tags"
 							placeholder="Enter tags"
-							className="resize-none focus-visible:ring-0 focus-visible:ring-offset-0 ring-0 focus:ring-0 outline-none shadow-sm p-3 rounded-lg"
+							className="font-['Montserrat'] font-bold resize-none focus-visible:ring-0 focus-visible:ring-offset-0 ring-0 focus:ring-0 outline-none shadow-sm p-3 rounded-lg"
 						/>
 						<div className="flex items-center gap-x-2">
 							<button
 								type="submit"
-								className="p-2 px-4 rounded-md bg-gray-950 text-gray-300 font-semibold shadow-lg overflow-hidden relative transition duration-200 hover:text-gray-800 hover:bg-white hover:before:w-full"
+								className="font-['Montserrat'] p-2 px-4 rounded-md bg-gray-950 text-gray-300 font-semibold shadow-lg overflow-hidden relative transition duration-200 hover:text-gray-800 hover:bg-white hover:before:w-full"
 							>
 								Add Label
 							</button>

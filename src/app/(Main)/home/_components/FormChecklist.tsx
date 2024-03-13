@@ -82,7 +82,7 @@ export default function FormCardChecklist({
 							{...register("checklistItem")}
 							id="checklistItem"
 							placeholder="Enter a checklist title..."
-							className="resize-none focus-visible:ring-0 focus-visible:ring-offset-0 ring-0 focus:ring-0 outline-none shadow-sm p-3 rounded-lg"
+							className="font-['Montserrat'] font-semibold resize-none focus-visible:ring-0 focus-visible:ring-offset-0 ring-0 focus:ring-0 outline-none shadow-sm p-3 rounded-lg"
 						/>
 						<div className="flex items-center gap-x-2">
 							<button
@@ -103,7 +103,7 @@ export default function FormCardChecklist({
 			) : (
 				<button
 					onClick={() => setIsEditing(true)}
-					className="w-full rounded-md  bg-[#f1f2f4] hover:bg-black/15 transition p-3 flex items-center font-medium text-sm"
+					className="w-full rounded-md  font-['Montserrat'] font-semibold bg-[#f1f2f4] hover:bg-black/15 transition p-3 flex items-center text-sm"
 				>
 					<Plus className="h-4 w-4 mr-2" />
 					Add a list

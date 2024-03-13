@@ -19,7 +19,7 @@ export default function DescriptionModal({
 				<NotebookPen className="w-20 h-20 shadow-white" color="white" />
 				<div className=" flex-col items-start gap-5 inline-flex">
 					<div className="flex flex-row gap-3 items-center">
-						<div className="text-white text-2xl font-black font-['Inter']">
+						<div className="text-white text-2xl font-black font-['Montserrat']">
 							Description
 						</div>
 						<button

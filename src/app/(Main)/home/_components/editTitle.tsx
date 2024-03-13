@@ -71,14 +71,14 @@ export default function EditTitle({
 							autoFocus
 							type="text"
 							defaultValue={newTitle ? newTitle : title}
-							className="text-4xl focus:text-white font-['Inter'] bg-transparent"
+							className="text-4xl focus:text-white font-['Montserrat'] font-semibold bg-transparent"
 							{...register("title")}
 						/>
 					</form>
 				</FormProvider>
 			) : (
 				<div className="justify-start items-center  flex flex-row w-full gap-4">
-					<div className="text-white text-4xl font-black font-['Inter'] text-wrap">
+					<div className="text-white text-4xl font-black font-['Montserrat'] text-wrap">
 						{newTitle ? newTitle : title}
 					</div>
 					<button

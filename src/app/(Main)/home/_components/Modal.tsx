@@ -1,13 +1,6 @@
 import { Task } from "@/types/Tasks";
 import { IsActiveAllState } from "@/types/isActiveAllSet";
-import {
-	Crown,
-	ListChecks,
-	NotebookPen,
-	Paperclip,
-	Pencil,
-	XCircle,
-} from "lucide-react";
+import { Crown, XCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import EditTitle from "./editTitle";
 
@@ -23,6 +16,7 @@ export const Modal = ({
 	id,
 	title,
 	setNewTitleTask,
+	titleBoard,
 }: {
 	onModal: boolean;
 	setOnModal: React.Dispatch<React.SetStateAction<any>>;
@@ -30,6 +24,7 @@ export const Modal = ({
 	id: string;
 	title: string;
 	setNewTitleTask: React.Dispatch<React.SetStateAction<any>>;
+	titleBoard: string;
 }) => {
 	const outsideModal = useRef<HTMLDivElement>(null);
 	const [data, setData] = useState<Task>({
@@ -47,15 +42,9 @@ export const Modal = ({
 		deletedAt: "",
 	});
 
-	const [isEditing, setIsEditing] = useState({
-		isEditingAttachment: false,
-		isEditingLabel: false,
-		isEditingDescription: false,
-		isEditingTitle: false,
-	});
-
 	const selectedTask = tasks.find((task) => task._id === id);
 	console.log(selectedTask);
+	console.log(id);
 	useEffect(() => {
 		if (selectedTask) {
 			setData(selectedTask);
@@ -121,11 +110,11 @@ export const Modal = ({
 								</div>
 
 								<div>
-									<span className="text-white text-lg font-normal font-['Inter']">
+									<span className="text-white text-lg font-normal font-['Montserrat']">
 										in list{" "}
 									</span>
-									<span className="text-white text-lg font-normal font-['Inter'] underline">
-										Daftar Tugas
+									<span className="text-white text-lg font-semibold font-['Montserrat'] underline">
+										{titleBoard}
 									</span>
 								</div>
 								<div className="h-auto py-7 flex-col justify-start items-start gap-2.5 flex">

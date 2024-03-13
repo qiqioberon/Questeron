@@ -68,7 +68,7 @@ export default function ChecklistModal({
 			<div className="w-full justify-start items-start gap-7 inline-flex">
 				<ListChecks className="w-20 h-20 shadow-white" color="white" />
 				<div className=" flex-col items-start gap-5 inline-flex">
-					<div className="text-white text-2xl font-black font-['Inter']">
+					<div className="text-white text-2xl font-black font-['Montserrat']">
 						Checklist
 					</div>
 
@@ -85,7 +85,7 @@ export default function ChecklistModal({
 													checked={checklists.isDone || false}
 													onChange={() => handleCheckboxChange(index)}
 												></input>
-												<span className="px-4 text-white font-semibold">
+												<span className="px-4 text-white font-semibold font-['Montserrat']">
 													{checklists.checklistItem}
 												</span>
 											</div>
@@ -101,7 +101,9 @@ export default function ChecklistModal({
 									</li>
 								))
 							) : (
-								<p className="text-white font-black">KOSONG SLUR</p>
+								<p className="text-white font-medium font-['Montserrat']">
+									KOSONG SLUR
+								</p>
 							)}
 						</ol>
 						<FormCardChecklist

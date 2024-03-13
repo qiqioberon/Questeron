@@ -67,7 +67,7 @@ const Attachment = ({
 		<div className="w-full justify-start items-start gap-7 inline-flex">
 			<Paperclip className="w-20 h-20 shadow-white" color="white" />
 			<div className="flex flex-col items-start gap-2 ">
-				<div className="text-white text-2xl font-black font-['Inter']">
+				<div className="text-white text-2xl font-black font-['Montserrat']">
 					Attachment
 				</div>
 
@@ -78,11 +78,11 @@ const Attachment = ({
 								className="w-96 h-fit p-4 bg-black/25 flex flex-row gap-3"
 								key={attachments._id}
 							>
-								<div className="w-44 h-auto bg-zinc-300 rounded flex justify-center items-center font-bold text-xl">
+								<div className="w-44 h-auto bg-zinc-300 rounded flex justify-center items-center font-bold text-xl font-['Montserrat']">
 									LINK
 								</div>
 								<div className="w-full h-fit flex flex-col text-white gap-1">
-									<h1 className="font-bold text-xl">
+									<h1 className="font-bold text-xl font-['Montserrat']">
 										{attachments.displayText}
 									</h1>
 									<a
@@ -90,7 +90,7 @@ const Attachment = ({
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										<button className="underline w-fit">
+										<button className="underline w-fit font-['Montserrat']">
 											{attachments.link}
 										</button>
 									</a>
@@ -99,7 +99,7 @@ const Attachment = ({
 											onClick={() =>
 												handleDeleteAttachment(attachments._id, id)
 											}
-											className="w-fit p-2 text-sm bg-black/50 text-white rounded-lg  h-fit font-semibold overflow-hidden relative transition duration-200  hover:bg-black/15 hover:before:w-full"
+											className="font-['Montserrat'] w-fit p-2 text-sm bg-black/50 text-white rounded-lg  h-fit font-semibold overflow-hidden relative transition duration-200  hover:bg-black/15 hover:before:w-full"
 										>
 											remove
 										</button>
@@ -108,7 +108,7 @@ const Attachment = ({
 											onClick={() =>
 												openModalAttachment(attachments._id, index)
 											}
-											className="w-fit p-2 text-sm bg-black/50 text-white rounded-lg  h-fit font-semibold overflow-hidden relative transition duration-200  hover:bg-black/15 hover:before:w-full"
+											className="font-['Montserrat'] w-fit p-2 text-sm bg-black/50 text-white rounded-lg  h-fit font-semibold overflow-hidden relative transition duration-200  hover:bg-black/15 hover:before:w-full"
 										>
 											edit
 										</button>
@@ -117,7 +117,7 @@ const Attachment = ({
 							</div>
 						))
 					) : (
-						<p className="text-white font-black">KOSONG SLUR</p>
+						<p className="text-white font-medium">KOSONG SLUR</p>
 					)}
 					{onModal && (
 						<ModalAttachment
