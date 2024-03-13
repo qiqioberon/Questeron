@@ -128,17 +128,20 @@ export default function SignIn() {
 										type="submit"
 										className="mb-1.5 block w-full text-center text-white bg-purple-700 hover:bg-purple-900 px-2 py-1.5 rounded-md"
 									>
-										Sign in
+										Sign Up
 									</button>
 								</div>
 							</form>
 						</FormProvider>
 						<div className="text-center">
 							<span className="text-xs text-gray-400 font-semibold">
-								Don't have account?
+								Already have an account?
 							</span>
-							<a href="/" className="text-xs font-semibold text-purple-700">
-								Sign up
+							<a
+								href="/sign-in"
+								className="text-xs font-semibold text-purple-700"
+							>
+								Sign In
 							</a>
 						</div>
 					</div>
