@@ -4,6 +4,7 @@ import { LoginUser as LoginUserType } from "@/types/LoginUserType";
 import { toast } from "react-toastify";
 import useUserStore from "@/store/userStore";
 
+
 export default function LoginUser() {
 	const {
 		mutate: mutateUseLoginUser,
@@ -14,7 +15,7 @@ export default function LoginUser() {
 			const loginUser = data;
 			return main.post(`user/login`, loginUser);
 		},
-		onError: (error: Error) => toast.error(error.message.toString()),
+		onError: (error: Error) => toast.error(getErrorMessage(error)),
 		onSuccess: () => toast.success("Sukses Login"),
 	});
 
@@ -30,51 +31,15 @@ export default function LoginUser() {
 }
 
 
-// export const SignUpUser = async ({
-// 	nrp,
-// 	nama,
-// 	email,
-// 	password,
-// }: {
-// 	nrp: string;
-// 	nama: string;
-// 	email: string;
-// 	password: string;
-// }): Promise<UserResponse> => {
-// 	try {
-// 		const response = await axios.post(
-// 			`${baseURL}/user`,
-// 			{
-// 				username: nrp,
-// 				name: nama,
-// 				email,
-// 				password,
-// 				language: "en",
-// 			},
-// 			{
-// 				headers: {
-// 					"Content-Type": "application/json",
-// 				},
-// 			}
-// 		);
-// 		console.log(response.data);
-// 		return response.data;
-// 	} catch (error) {
-// 		throw error;
-// 	}
-// };
+function getErrorMessage(error: any) {
+	let resultMessage = "";
+	if (error) {
+		console.log(error.request);
+		const responseJson = JSON.parse(error.request.response);
+		console.log(responseJson.resultMessage.en);
 
-// export const GetCurrentUser = async (): Promise<UserResponse> => {
-// 	try {
-// 		const response = await axios.get(`${baseURL}/user`, {
-// 			headers: {
-// 				"Content-Type": "application/json",
-// 				Authorization: `Bearer ${token}`,
-// 			},
-// 		});
-// 		console.log(response.data);
-// 		return response.data;
-// 	} catch (error) {
-// 		throw error;
-// 	}
-// };
+		resultMessage = responseJson.resultMessage.en.toString();
+	}
+	return resultMessage;
+}
+
