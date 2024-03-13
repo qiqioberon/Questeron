@@ -1,25 +1,22 @@
 "use client";
 import { useRouter } from "next/navigation";
-import LoginUser from "@/api/User/loginuser";
+import SignUpUser from "@/api/User/signup";
 import { FormProvider, useForm, SubmitHandler } from "react-hook-form";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
-interface LoginUserForm {
-	email: string;
-	password: string;
-}
+import { SignUp } from "@/types/SignUpForm";
 
 export default function SignIn() {
 	const router = useRouter();
-	const methods = useForm<LoginUserForm>();
+	const methods = useForm<SignUp>();
 	const { register, handleSubmit } = methods;
-	const { mutateUseLoginUser, response, isSuccess } = LoginUser();
-	const onSubmit: SubmitHandler<LoginUserForm> = async (datas) => {
+	const { mutateSignUp, responseSignUp, isSuccess } = SignUpUser();
+	const onSubmit: SubmitHandler<SignUp> = async (datas) => {
 		try {
+			datas.language = "en";
 			console.log(datas);
-			console.log(isSuccess);
 
-			await mutateUseLoginUser(datas);
+			await mutateSignUp(datas);
 		} catch (error) {
 			console.error("Error:", error);
 		}
@@ -31,13 +28,9 @@ export default function SignIn() {
 		setShowPassword(!showPassword);
 	};
 
-	if (isSuccess && response && response.status === 200) {
-		console.log(response);
-		console.log(response?.status);
-		const { accessToken } = response.data;
-		console.log(accessToken);
-
-		router.push("/home");
+	if (isSuccess && responseSignUp && responseSignUp.status === 200) {
+		router.push("/sign-in");
+	} else {
 	}
 
 	return (
@@ -50,10 +43,40 @@ export default function SignIn() {
 					<div className="w-72">
 						<h1 className="text-xl font-semibold">Welcome back</h1>
 						<small className="text-gray-400">
-							Welcome back! Please enter your details
+							Welcome ! Please enter your details
 						</small>
 						<FormProvider {...methods}>
 							<form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
+								<div className="mb-3">
+									<label
+										className="mb-2 block text-xs font-semibold"
+										htmlFor="username"
+									>
+										Username
+									</label>
+									<input
+										id="username"
+										type="text"
+										placeholder="Enter your username"
+										className="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500"
+										{...register("username")}
+									/>
+								</div>
+								<div className="mb-3">
+									<label
+										className="mb-2 block text-xs font-semibold"
+										htmlFor="name"
+									>
+										Name
+									</label>
+									<input
+										id="name"
+										type="text"
+										placeholder="Enter your name"
+										className="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500"
+										{...register("name")}
+									/>
+								</div>
 								<div className="mb-3">
 									<label
 										className="mb-2 block text-xs font-semibold"

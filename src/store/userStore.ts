@@ -1,6 +1,13 @@
 import { create } from 'zustand';
 
-export const useUserStore = create((set) => ({
-    accessToken: '',
-    setUser: (accessToken: string) => set({ accessToken: accessToken }),
+interface UserState {
+    accessToken: string | null;
+    setAccessToken: (token: string) => void;
+}
+
+const useUserStore = create<UserState>((set) => ({
+    accessToken: null,
+    setAccessToken: (token) => set({ accessToken: token }),
 }));
+
+export default useUserStore;

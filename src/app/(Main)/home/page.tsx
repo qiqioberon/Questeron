@@ -1,13 +1,18 @@
 "use client";
-import getUser from "@/api/User/getUser";
+
 import { Navbar } from "./_components/navbar";
 import GetTaskData from "@/api/Task/getTask";
-import { FetchAllTask } from "./_components/fetchAllTask";
+import useUserStore from "@/store/userStore";
 import BoardContainer from "./_components/BoardContainer";
-
+import { useRouter } from "next/navigation";
 export default function Home() {
 	const { taskData, isSuccess } = GetTaskData();
 	console.log(taskData?.data.data.tasks, isSuccess);
+
+	const { accessToken } =
+		useUserStore.getState() || localStorage.getItem("accessToken");
+	console.log(accessToken);
+	const router = useRouter();
 
 	if (!taskData)
 		return (
@@ -30,7 +35,6 @@ export default function Home() {
 							"linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 212, 255, 1) 0%, rgba(9, 9, 121, 1) 100%)",
 					}}
 				>
-					{/* <BoardNavbar /> */}
 					<div className="absolute inset-0 bg-black/10 " />
 
 					{/* dibawah ini children alias si page */}
