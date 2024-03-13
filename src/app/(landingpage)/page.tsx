@@ -1,5 +1,5 @@
 import { Medal } from "lucide-react";
-
+import Link from "next/link";
 const LandingPageMain = () => {
 	return (
 		<div className="flex items-center justify-center flex-col">
@@ -21,9 +21,11 @@ const LandingPageMain = () => {
 				accomplish it all with Questeron.
 			</div>
 
-			<button className="mt-6 inline-block px-4 py-2 text-lg font-bold text-center text-white  bg-pink-600 border-2 border-pink-800 rounded-lg shadow-md transition-all duration-300 cursor-pointer hover:bg-white hover:text-red-500 hover:border-red-500 active:bg-yellow-400 active:shadow-none active:translate-y-4">
-				Get Questopia for free
-			</button>
+			<Link href="/sign-up">
+				<button className="mt-6 inline-block px-4 py-2 text-lg font-bold text-center text-white  bg-pink-600 border-2 border-pink-800 rounded-lg shadow-md transition-all duration-300 cursor-pointer hover:bg-white hover:text-red-500 hover:border-red-500 active:bg-yellow-400 active:shadow-none active:translate-y-4">
+					Get Questeron for free
+				</button>
+			</Link>
 		</div>
 	);
 };
