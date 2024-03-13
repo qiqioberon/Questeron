@@ -114,7 +114,7 @@ export default function SignIn() {
 							<span className="text-xs text-gray-400 font-semibold">
 								Don't have account?
 							</span>
-							<a href="/" className="text-xs font-semibold text-purple-700">
+							<a href="/sign-up" className="text-xs font-semibold text-purple-700">
 								Sign up
 							</a>
 						</div>
