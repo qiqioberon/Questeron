@@ -53,7 +53,9 @@ export default function BoardContainer({ tasks }: { tasks: Task[] }) {
 					(board) => board.id === task.status
 				);
 				if (boardIndex !== -1) {
-					updatedBoard[boardIndex].tasks.push(task);
+					updatedBoard[boardIndex].tasks.find((task) => task._id === task._id)
+						? updatedBoard[boardIndex].tasks
+						: updatedBoard[boardIndex].tasks.push(task);
 				}
 			});
 			setBoard(updatedBoard);
